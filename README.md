@@ -115,7 +115,57 @@ python app.py
     ```
     If the weight you download is paper weight, the default argument of test_code/inference.py is capable of executing sample images from "__assets__" folder
 
+```python
+from PIL import Image, ImageSequence
+import os
 
+def gif_to_frames(gif_path, output_folder):
+    # Open the GIF file
+    gif = Image.open(gif_path)
+    
+    # Ensure the output folder exists
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    
+    # Iterate through each frame of the GIF
+    for i, frame in enumerate(ImageSequence.Iterator(gif)):
+        # Copy the frame
+        frame_copy = frame.copy()
+        
+        # Save the frame to the specified folder
+        frame_path = os.path.join(output_folder, f"frame_{i:04d}.png")
+        frame_copy.save(frame_path)
+    
+    print(f"Successfully extracted {i + 1} frames to {output_folder}")
+
+# Example call
+gif_to_frames("xiangling_animation.gif", "xiangling_animation_frames")
+```
+
+```shell
+python test_code/inference.py --input_dir xiangling_animation_frames  --weight_path pretrained/4x_APISR_GRL_GAN_generator.pth  --store_dir xiangling_animation_frames_4x
+```
+
+```python
+import os
+folder_path = "xiangling_animation_frames_4x/"
+frames = os.listdir(folder_path)
+frames = list(filter(lambda x: x.endswith(".png"), frames))
+frames.sort()
+conditioning_frames = list(map(lambda x: Image.open(os.path.join(folder_path ,x)), frames))
+export_to_gif(conditioning_frames, "xiangling_animation_frames_4x.gif")
+from IPython import display
+display.Image("xiangling_animation_frames_4x.gif")
+```
+
+<div style="display: flex; justify-content: center; flex-wrap: nowrap;">
+    <div style="margin-right: 10px;">
+        <img src="xiangling_animation.gif" alt="Image 1" style="width: 512px; height: 768px;">
+    </div>
+    <div style="margin-left: 10px;">
+        <img src="xiangling_animation_frames_4x.gif" alt="Image 2" style="width: 512px; height: 768px;">
+    </div>
+</div>
 
 ## <a name="dataset_curation"></a> Dataset Curation 🧩
 Our dataset curation pipeline is under **dataset_curation_pipeline** folder. 
