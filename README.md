@@ -118,13 +118,18 @@ You can collect your dataset by sending videos (mp4 or other format) into the pi
 
 1.  Download [IC9600](https://github.com/tinglyfeng/IC9600?tab=readme-ov-file) weight (ck.pth) from https://drive.google.com/drive/folders/1N3FSS91e7FkJWUKqT96y_zcsG9CRuIJw and place it at "pretrained/" folder (else, you can define a different **--IC9600_pretrained_weight_path** in the following collect.py execution)
 
-2.  With a folder with video sources, you can execute the following to get a basic dataset (with **ffmpeg** installed):
+   ```bash
+   wget https://github.com/Kiteretsu77/APISR/releases/download/v0.1.0/4x_APISR_GRL_GAN_generator.pth
+   cp 4x_APISR_GRL_GAN_generator.pth pretrained
+   ```
+
+3.  With a folder with video sources, you can execute the following to get a basic dataset (with **ffmpeg** installed):
 
     ```shell
     python dataset_curation_pipeline/collect.py --video_folder_dir XXX --save_dir XXX
     ```
 
-3. Once you get an image dataset with various aspect ratios and resolutions, you can run the following scripts
+4. Once you get an image dataset with various aspect ratios and resolutions, you can run the following scripts
 
     Be careful to check **uncropped_hr** && **degrade_hr_dataset_path** && **train_hr_dataset_path** (we will use these path in **opt.py** setting during training stage)
 
