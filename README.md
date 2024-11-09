@@ -67,17 +67,14 @@ Please check [**toon_crafter_upscale**](docs/toon_crafer_example.md)
 ## <a name="installation"></a> Installation 🔧
 
 ```shell
-git clone git@github.com:Kiteretsu77/APISR.git
-cd APISR
+git clone https://github.com/svjack/APISR && cd APISR
 
 # Create conda env
-conda create -n APISR python=3.10
-conda activate APISR
+conda create -n py310 python=3.10 && conda activate py310 && python -m ipykernel install --user --name py310 --display-name "py310"
 
 # Install Pytorch and other packages needed
 pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
-
 
 # To be absolutely sure that the tensorboard can execute. I recommend the following CMD from "https://github.com/pytorch/pytorch/issues/22676#issuecomment-534882021"
 pip uninstall tb-nightly tensorboard tensorflow-estimator tensorflow-gpu tf-estimator-nightly
