@@ -80,6 +80,8 @@ pip install -r requirements.txt
 pip uninstall tb-nightly tensorboard tensorflow-estimator tensorflow-gpu tf-estimator-nightly
 pip install tensorflow
 
+pip install ffmpegcv
+
 # Install FFMPEG [Only needed for training and dataset curation stage; inference only does not need ffmpeg] (the following is for the linux system, Windows users can download ffmpeg from https://ffmpeg.org/download.html)
 sudo apt install ffmpeg
 ```
