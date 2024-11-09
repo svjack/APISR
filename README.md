@@ -102,6 +102,10 @@ python app.py
 ## <a name="regular_inference"></a> Regular Inference ⚡⚡
 
 1. Download the model weight from [**model zoo**](docs/model_zoo.md) and **put the weight to "pretrained" folder**.
+   ```bash
+   wget https://github.com/Kiteretsu77/APISR/releases/download/v0.1.0/4x_APISR_GRL_GAN_generator.pth
+   cp 4x_APISR_GRL_GAN_generator.pth pretrained
+   ```
 
 2. Then, Execute (**single image/video** or a **directory mixed with images&videos** are all ok!)
     ```shell
@@ -117,11 +121,6 @@ Our dataset curation pipeline is under **dataset_curation_pipeline** folder.
 You can collect your dataset by sending videos (mp4 or other format) into the pipeline and get the least compressed and the most informative images from the video sources. 
 
 1.  Download [IC9600](https://github.com/tinglyfeng/IC9600?tab=readme-ov-file) weight (ck.pth) from https://drive.google.com/drive/folders/1N3FSS91e7FkJWUKqT96y_zcsG9CRuIJw and place it at "pretrained/" folder (else, you can define a different **--IC9600_pretrained_weight_path** in the following collect.py execution)
-
-   ```bash
-   wget https://github.com/Kiteretsu77/APISR/releases/download/v0.1.0/4x_APISR_GRL_GAN_generator.pth
-   cp 4x_APISR_GRL_GAN_generator.pth pretrained
-   ```
 
 3.  With a folder with video sources, you can execute the following to get a basic dataset (with **ffmpeg** installed):
 
