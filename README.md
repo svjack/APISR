@@ -67,6 +67,9 @@ Please check [**toon_crafter_upscale**](docs/toon_crafer_example.md)
 ## <a name="installation"></a> Installation 🔧
 
 ```shell
+# Install FFMPEG [Only needed for training and dataset curation stage; inference only does not need ffmpeg] (the following is for the linux system, Windows users can download ffmpeg from https://ffmpeg.org/download.html)
+sudo apt-get update && sudo apt install ffmpeg
+
 git clone https://github.com/svjack/APISR && cd APISR
 
 # Create conda env
@@ -81,9 +84,6 @@ pip uninstall tb-nightly tensorboard tensorflow-estimator tensorflow-gpu tf-esti
 pip install tensorflow
 
 pip install ffmpegcv
-
-# Install FFMPEG [Only needed for training and dataset curation stage; inference only does not need ffmpeg] (the following is for the linux system, Windows users can download ffmpeg from https://ffmpeg.org/download.html)
-sudo apt install ffmpeg
 ```
 
 
