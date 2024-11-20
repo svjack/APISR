@@ -73,7 +73,7 @@ sudo apt-get update && sudo apt install ffmpeg
 git clone https://github.com/svjack/APISR && cd APISR
 
 # Create conda env
-conda create -n py310 python=3.10 && conda activate py310 && python -m ipykernel install --user --name py310 --display-name "py310"
+conda create -n py310 python=3.10 && conda activate py310 && pip install ipykernel && python -m ipykernel install --user --name py310 --display-name "py310"
 
 # Install Pytorch and other packages needed
 pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu118
