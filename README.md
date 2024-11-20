@@ -84,6 +84,7 @@ pip uninstall tb-nightly tensorboard tensorflow-estimator tensorflow-gpu tf-esti
 pip install tensorflow
 
 pip install ffmpegcv
+pip install diffusers
 ```
 
 
@@ -147,6 +148,7 @@ python test_code/inference.py --input_dir xiangling_animation_frames  --weight_p
 ```
 
 ```python
+from diffusers.utils import export_to_gif
 import os
 folder_path = "xiangling_animation_frames_4x/"
 frames = os.listdir(folder_path)
